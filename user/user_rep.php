@@ -11,17 +11,17 @@ if (isset($_POST['submit'])) :  // test sur la présence d'une valeur envoyée d
 //echo "Choix du questionnaire n° " . $choix_quest;  // Affiche la variable contenant la valeur 
 
 else :
-    //echo "No data 1";
-    header("Location: ../index.php"); // on redirige vers index.php si la valeur est absente
+    echo "No data";
+    //header("Location: ../index.php"); // on redirige vers index.php si la valeur est absente
 endif;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['choixuser']))) {
     print_r($_POST['choixuser']);
+    print_r($choix_quest);
+    //$validquest = ($choix_quest);
     $date = date('Y-m-d H:i:s');
     $choixusertab = ($_POST['choixuser']);
     $choixusertabencode = json_encode($choixusertab);
-    // print_r($_POST['quest_user']);
-
     $validchoix = true;
 
     if (empty($choixusertab)) {
@@ -31,9 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['choixuser']))) {
     if ($validchoix == true) {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "INSERT INTO user (tb_choix, date_user) values(?, ?)";
+        $sql = "INSERT INTO user (nom_questionnaire, tb_choix, date_user) values(?, ?, ?)";
         $q = $pdo->prepare($sql);
-        $q->execute(array($choixusertabencode, $date));
+        $q->execute(array($validquest, $choixusertabencode, $date));
         Database::disconnect();
         //header("Location: ../index.php");
     }
