@@ -13,19 +13,24 @@ else :
 //header("Location: ../index.php"); // on redirige vers index.php si la valeur est absente
 endif;
 
-//echo "session" . " : " .($_SESSION['questionnairevalid']);
+echo "   " . " session" . " : " .($_SESSION['questionnairevalid']);
 ?>
 <br>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST['choixuser']))) {
     //print_r($_POST['choixuser']);
     $questionnaire = ($_SESSION['questionnairevalid']);
-    $date = date('Y-m-d H:i:s');
+    $tz = 'Europe/Paris';
+    $timestamp = time();
+    $dt = new DateTime("now", new DateTimeZone($tz)); //first argument "must" be a string
+    $dt->setTimestamp($timestamp); //adjust the object to correct timestamp
+    //echo $dt->format('d.m.Y, H:i:s');
+    $date = $dt->format('d.m.Y, H:i:s');
     $choixusertab = ($_POST['choixuser']);
     $choixusertabencode = json_encode($choixusertab);
     $validchoix = true;
 } elseif (empty($_POST['choixuser'])) {
-    echo "Pas de réponses";
+    echo " Pas de réponses";
     $validchoix = false;
 }
 if ($validchoix == true) {
@@ -35,6 +40,7 @@ if ($validchoix == true) {
     $q = $pdo->prepare($sql);
     $q->execute([$questionnaire, $choixusertabencode, $date]);
     Database::disconnect();
+    echo "Réponses sauvegardées!";
     //header("Location: ../index.php");
 }
 

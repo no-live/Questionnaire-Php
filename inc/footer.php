@@ -2,7 +2,7 @@
     
         <div class="row">
             <div class="col-md-12 bg-secondary rounded-bottom">
-            <p class="text-center">2022 © <a class="text-decoration-none text-light fw-bolder" href="index.php"> La Tribu Meinado</a></p>
+            <p class="text-center">2023 © <a class="text-decoration-none text-light fw-bolder" href="/Tribu/index.php"> Questionnaire php</a></p>
             </div>
         </div>
     </div>
