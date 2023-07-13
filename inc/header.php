@@ -3,7 +3,7 @@
         <div class="row text-center">
             <p class="col-12 align-items-center">
                 <a class="text-decoration-none text-dark fs-1 fw-bolder" href="index.php">
-                    La Tribu Meinado, questionnaires et études d'impact
+                   Questionnaires, études d'impact
                 </a>
             </p>
 
