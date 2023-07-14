@@ -61,7 +61,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
     $_SESSION['message'] = '⚠ Veuillez remplir les 2 champs pour vous connecter';
 
-    header('Location: connexion.php');
+    header('Location: ./connexion.php');
 
 }
 

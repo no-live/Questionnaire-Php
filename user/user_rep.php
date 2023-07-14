@@ -13,7 +13,7 @@ else :
 //header("Location: ../index.php"); // on redirige vers index.php si la valeur est absente
 endif;
 
-echo "   " . " session" . " : " .($_SESSION['questionnairevalid']);
+echo "- session" . " : " .($_SESSION['questionnairevalid']);
 ?>
 <br>
 <?php
@@ -40,7 +40,7 @@ if ($validchoix == true) {
     $q = $pdo->prepare($sql);
     $q->execute([$questionnaire, $choixusertabencode, $date]);
     Database::disconnect();
-    echo "Réponses sauvegardées!";
+    echo "📤 Réponses sauvegardées!";
     //header("Location: ../index.php");
 }
 
@@ -116,8 +116,8 @@ include('../inc/link.php');
                         Database::disconnect(); //on se deconnecte de la base
                         ?>
                         <div class="container">
-                            <div class="text-center">
-                                <input type="submit" class="btn btn-success btn-lg mt-3 p-3" value="SEND">
+                            <div class="col-12 mt-3 p-2 text-center">
+                                <input type="submit" class="btn btn-success p-3" value="SEND">
                                 <a class="btn btn-secondary" href="../index.php">Retour</a>
                             </div>
                         </div>
