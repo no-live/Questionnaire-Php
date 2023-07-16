@@ -1,6 +1,8 @@
 <?php
 session_start();
+echo "- session" . " : " .($_SESSION['status']);
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <?php
@@ -18,11 +20,11 @@ include('./inc/link.php');
         <div class="row">
             <form action="control-connexion.php" method="POST">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Adresse email</label>
+                    <label for="exampleInputEmail1" class="form-label text-light">Adresse email</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+                    <label for="exampleInputPassword1" class="form-label text-light">Mot de passe</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" name="password">
                 </div>
 
