@@ -55,18 +55,17 @@
             <?php
             else :
             ?>
-                <!-- DECONNECTÉ -->
 
+                <!-- DECONNECTÉ -->
                 <!-- DEBUT  -->
                 <div class="col-12 col-md-4 d-flex flex-wrap justify-content-end align-items-center gap-2">
                     <div class="dropdown">
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?= !empty($_SESSION['pseudo']) ? $_SESSION['pseudo'] : 'Admin' ?>
+                            <?= !empty($_SESSION['pseudo']) ? $_SESSION['pseudo'] : 'Se connecter' ?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="connexion.php">CONNEXION</a></li>
                             <!-- <li><a class="dropdown-item" href="./user-inscription/index.php">INSCRIPTION</a></li> -->
-
                         </ul>
                     </div>
                 </div>

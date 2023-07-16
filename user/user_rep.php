@@ -73,12 +73,16 @@ include('../inc/link.php');
                         $sql_bc1 = "SELECT * FROM questionnaire JOIN link_quest ON id_questionnaire = link_quest.id_lk_questionnaire JOIN question ON 
                         id_question = link_quest.id_lk_question WHERE nom_questionnaire  = '" . ($questionnaire) . "'";
                         $q_bc1 = $pdo_bc1->query($sql_bc1);
+                      //  $data_quest = $q_bc1->fetch();
                         while ($data_quest = $q_bc1->fetch()) :
+                            //echo '<pre>'; print_r($data_quest); echo '</pre>';
+                            if (($data_quest['multi_rep']) == 1){ // affiche les questions multichoix
                         ?>
                             <div class="col-12 backgris rounded">
                                 <div class="row text-light p-2">
                                     <?php
                                     echo "<h3>" . "- " . $data_quest['contenu_question'] . "</h3>";
+                                    echo "Plusieurs choix possible";
                                     ?>
                                     <hr class="text-dark">
                                     <?php
@@ -111,6 +115,47 @@ include('../inc/link.php');
                                 </div>
                             </div>
                         <?php
+                            }
+                            elseif (($data_quest['multi_rep']) == 0){
+                                ?>
+                                 <div class="col-12 backgris rounded">
+                                <div class="row text-light p-2">
+                                    <?php
+                                    echo "<h3>" . "- " . $data_quest['contenu_question'] . "</h3>";
+                                    echo "un seul choix possible";
+                                    ?>
+                                    <hr class="text-dark">
+                                    <?php
+                                    $choix_quest1 = $data_quest['id_question'];
+                                    ?>
+                                    <div class="container">
+                                        <div class="row align-items-center p-2">
+                                            <div class="col-12 p-3">
+                                                <?php
+                                                $pdo_bc2 = Database::connect(); //on se connecte à la base 
+                                                $sql_bc2 = "SELECT * FROM question JOIN quest_rep ON id_question = quest_rep.id_questrep JOIN reponse ON id_rep = quest_rep.id_repquest WHERE
+                                                 question.id_question = '" . ($choix_quest1) . "'"; //  on formule notre requete
+                                                foreach ($pdo_bc2->query($sql_bc2) as $row) { //on cree les lignes des réponses avec chaque valeur retournée
+                                                ?>
+                                                    <div class="container">
+                                                        <div class="row mt-2">
+                                                            <input type="radio" class="btn btn-check" id="<?php echo $row['id_question'] ?> / <?php echo $row['id_rep'] ?>" name="choixuser[]" value="<?php echo $row['id_question'] ?> / <?php echo $row['id_rep'] ?>">
+                                                            <label class="btn btn-outline-primary text-light" for="<?php echo $row['id_question'] ?> / <?php echo $row['id_rep'] ?>">
+                                                                <?php echo $row['contenu_rep'] ?></label>
+                                                        </div>
+                                                    </div>
+                                                <?php
+
+                                                }
+                                                Database::disconnect(); //on se deconnecte de la base
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                            }
                         endwhile;
                         $q_bc1->closecursor();
                         Database::disconnect(); //on se deconnecte de la base

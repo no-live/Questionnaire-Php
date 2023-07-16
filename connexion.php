@@ -1,26 +1,20 @@
-<?php 
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-
 <?php
 include('./inc/head.php');
 include('./inc/link.php');
 ?>
-
 <body>
-
     <?php
     include('./inc/header.php');
     ?>
-
     <main class="container min-vh-100">
-
         <div class="row">
             <h1>Connexion</h1>
         </div>
-
         <div class="row">
             <form action="control-connexion.php" method="POST">
                 <div class="mb-3">
@@ -35,16 +29,9 @@ include('./inc/link.php');
                 <button type="submit" class="btn btn-primary">CONNEXION</button>
             </form>
         </div>
-
-
-
     </main>
-
     <?php
     include('./inc/footer.php');
     ?>
-
-
 </body>
-
 </html>

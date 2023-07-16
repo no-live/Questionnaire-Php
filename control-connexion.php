@@ -20,14 +20,10 @@ $tabs = $q->fetch();
 
 $email= $_POST['email'];
 $password= $_POST['password'];
-
-
 //   while($row = $q->fetch()){
     //       var_dump($row);
     
 //   }
-  
-
 // $email = $tabs['email'];
 // $password = $tabs['password'];
 // $pseudo = $q['name'];
