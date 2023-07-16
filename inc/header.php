@@ -32,7 +32,7 @@
                 </nav>
             </div>
             <?php
-            if (isset($_SESSION['status'])) :
+            if (isset($_SESSION['status']) && $_SESSION['status'] == 'Admin'):
             ?>
                 <!-- CONNECTÉ -->
                 <div class="col-md-4 d-flex flex-wrap justify-content-end align-items-center gap-2">
@@ -42,12 +42,12 @@
                             <?= !empty($_SESSION['pseudo']) ? $_SESSION['pseudo'] : 'Admin' ?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="./admin/index.php">ADMINISTRATION DES DONNEES</a></li>
+                            <li><a class="dropdown-item" href="/Tribu/user/user_read.php">Consulter les données</a></li>
                             <li><a class="dropdown-item disabled" href="#">Link</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="deconnexion.php">DECONNEXION</a></li>
+                            <li><a class="dropdown-item" href="/Tribu/deconnexion.php">DECONNEXION</a></li>
                         </ul>
                     </div>
                     <!-- FIN -->

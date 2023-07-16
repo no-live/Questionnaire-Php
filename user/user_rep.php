@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['status'] = 'Admin';
 include('../inc/database.php');
 ?>
 <?php
@@ -14,6 +15,11 @@ else :
 endif;
 
 echo "- session" . " : " .($_SESSION['questionnairevalid']);
+?>
+<br>
+<?php
+echo "- session" . " : " .($_SESSION['status']);
+
 ?>
 <br>
 <?php
@@ -71,7 +77,8 @@ include('../inc/link.php');
                         $pdo_bc1 = Database::connect(); //on se connecte à la base
                         $pdo_bc1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         $sql_bc1 = "SELECT * FROM questionnaire JOIN link_quest ON id_questionnaire = link_quest.id_lk_questionnaire JOIN question ON 
-                        id_question = link_quest.id_lk_question WHERE nom_questionnaire  = '" . ($questionnaire) . "'";
+                        id_question = link_quest.id_lk_question  WHERE nom_questionnaire  = '" . ($questionnaire) . "'"; //Requête affiche les questions selon le questionnaire
+                        $sql_bc1 .= "ORDER BY id_question ASC"; //Ajout requête de tri des questions   
                         $q_bc1 = $pdo_bc1->query($sql_bc1);
                       //  $data_quest = $q_bc1->fetch();
                         while ($data_quest = $q_bc1->fetch()) :
@@ -82,7 +89,7 @@ include('../inc/link.php');
                                 <div class="row text-light p-2">
                                     <?php
                                     echo "<h3>" . "- " . $data_quest['contenu_question'] . "</h3>";
-                                    echo "Plusieurs choix possible";
+                                    echo "* Plusieurs choix possible";
                                     ?>
                                     <hr class="text-dark">
                                     <?php
@@ -122,7 +129,7 @@ include('../inc/link.php');
                                 <div class="row text-light p-2">
                                     <?php
                                     echo "<h3>" . "- " . $data_quest['contenu_question'] . "</h3>";
-                                    echo "un seul choix possible";
+                                    echo "* Un seul choix possible";
                                     ?>
                                     <hr class="text-dark">
                                     <?php

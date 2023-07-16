@@ -1,6 +1,8 @@
 <?php
 session_start();
 session_unset();
+$_SESSION['status'] = 'Vide, connectez-vous';
+echo "- session" . " : " .($_SESSION['status']);
 ?>
 <!DOCTYPE html>
 <?php
