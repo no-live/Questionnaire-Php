@@ -14,7 +14,7 @@ include('inc/link.php');
     <?php
     include('inc/header.php');
     ?>
-    <main class="container backtribu min-vh-100">
+    <main class="container backtribu min-vh-114">
         <div class="row text-light text-center">
             <h1 class=" p-4 mb-0 ">Bienvenue !</h1>
             <p>Ce site vous propose de répondre à différent questionnaire de façon anonyme, vos données personnelles ne sont pas conservées, seules vos réponses comptent ! </p>

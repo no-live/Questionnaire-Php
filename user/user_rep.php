@@ -13,13 +13,11 @@ else :
 //echo "No data";
 //header("Location: ../index.php"); // on redirige vers index.php si la valeur est absente
 endif;
-
 echo "- session" . " : " .($_SESSION['questionnairevalid']);
 ?>
 <br>
 <?php
 echo "- session" . " : " .($_SESSION['status']);
-
 ?>
 <br>
 <?php
