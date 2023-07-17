@@ -84,7 +84,7 @@ include('../inc/link.php');
                     </div>
                 </form>
                 <hr class="text-light">
-                <p class="text-light">⚠Vous pouvez réutiliser une question éxistante dans un nouveau questionnaire, cependant les réponses à cette question seront inchangées.
+                <p class="text-light">⚠Vous pouvez réutiliser une question existante dans un nouveau questionnaire, cependant les réponses à cette question seront inchangées.
                     Ressaisissez la question ou modifiez les réponses à cette question avec l'option modifier réponses.</p>
                 <hr class="text-light">
                 <div class="row mt-3 mb-3 text-light">

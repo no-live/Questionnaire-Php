@@ -24,7 +24,7 @@
                                     <a class="nav-link active text-light" aria-current="page" href="/Tribu/questionnaire/add_question.php">Nouveau questionnaire</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active text-light" aria-current="page" href="/Tribu/questionnaire/add_reponse.php">Add_rep</a>
+                                    <a class="nav-link active text-light" aria-current="page" href="/Tribu/user/user_read.php">Lecture</a>
                                 </li>
                             </ul>
                         </div>
@@ -64,7 +64,7 @@
                             <?= !empty($_SESSION['pseudo']) ? $_SESSION['pseudo'] : 'Se connecter' ?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="connexion.php">CONNEXION</a></li>
+                            <li><a class="dropdown-item" href="/Tribu/connexion.php">CONNEXION</a></li>
                             <!-- <li><a class="dropdown-item" href="./user-inscription/index.php">INSCRIPTION</a></li> -->
                         </ul>
                     </div>
