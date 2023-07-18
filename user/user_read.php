@@ -97,11 +97,11 @@ include('../inc/link.php');
                                 echo '<td>' . $row['tb_choix'] . '</td>';
                                 echo '<td>' . $row['url'] . '</td>';
                                 echo '<td>';
-                                echo '<a class="btn btn-primary" href="user_edit.php?id=' . $row['id_user'] . '">Lire</a>'; // un autre td pour le bouton d'edition
+                                echo '<a class="btn btn-outline-light btn-sm" href="user_edit.php?id=' . $row['id_user'] . '">Lire</a>'; // un autre td pour le bouton d'edition
                                 echo ' ';
-                                echo '<a class="btn btn-success" href="user_update.php?id=' . $row['id_user'] . '">Mise à jour</a>'; // un autre td pour le bouton d'update
+                                echo '<a class="btn btn-outline-light btn-sm" href="user_update.php?id=' . $row['id_user'] . '">Mise à jour</a>'; // un autre td pour le bouton d'update
                                 echo ' ';
-                                echo '<a class="btn btn-danger" href="user_delete.php?id=' . $row['id_user'] . ' ">Supprimer</a>'; // un autre td pour le bouton de suppression
+                                echo '<a class="btn btn-outline-light btn-sm" href="user_delete.php?id=' . $row['id_user'] . ' ">Supprimer</a>'; // un autre td pour le bouton de suppression
                                 echo ' ';
                                 echo '</td>';
                                 echo '</tr>';
@@ -111,9 +111,6 @@ include('../inc/link.php');
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <a href="" class="btn btn-success col-2">Ajouter un utilisateur</a>
-        </div>
     </main>
 
     <?php
