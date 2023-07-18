@@ -104,8 +104,8 @@ include('../inc/link.php');
                                                 ?>
                                                     <div class="container">
                                                         <div class="row mt-2">
-                                                            <input type="checkbox" class="btn btn-check" id="<?php echo $row['id_question'] ?> / <?php echo $row['id_rep'] ?>" name="choixuser[]" value="<?php echo $row['id_question'] ?> / <?php echo $row['id_rep'] ?>">
-                                                            <label class="btn btn-outline-primary text-light" for="<?php echo $row['id_question'] ?> / <?php echo $row['id_rep'] ?>">
+                                                            <input type="checkbox" class="btn btn-check" id="<?php echo $row['id_question'] ?><?php echo $row['id_rep'] ?>" name="choixuser[]" value="<?php echo $row['id_question'] ?>&<?php echo $row['id_rep'] ?>">
+                                                            <label class="btn btn-outline-primary text-light" for="<?php echo $row['id_question'] ?><?php echo $row['id_rep'] ?>">
                                                                 <?php echo $row['contenu_rep'] ?></label>
                                                         </div>
                                                     </div>
@@ -144,8 +144,8 @@ include('../inc/link.php');
                                                 ?>
                                                     <div class="container">
                                                         <div class="row mt-2">
-                                                            <input type="radio" class="btn btn-check" id="<?php echo $row['id_question'] ?> / <?php echo $row['id_rep'] ?>" name="choixuser[]" value="<?php echo $row['id_question'] ?> / <?php echo $row['id_rep'] ?>">
-                                                            <label class="btn btn-outline-primary text-light" for="<?php echo $row['id_question'] ?> / <?php echo $row['id_rep'] ?>">
+                                                            <input type="radio" class="btn btn-check" id="<?php echo $row['id_question'] ?><?php echo $row['id_rep'] ?>" name="choixuser[]" value="<?php echo $row['id_question'] ?>&<?php echo $row['id_rep'] ?>">
+                                                            <label class="btn btn-outline-primary text-light" for="<?php echo $row['id_question'] ?><?php echo $row['id_rep'] ?>">
                                                                 <?php echo $row['contenu_rep'] ?></label>
                                                         </div>
                                                     </div>

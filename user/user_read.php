@@ -9,8 +9,11 @@ echo "- session" . " : " . ($_SESSION['status']);
 <?php
 if (isset($_POST['submit'])) :  // test sur la présence d'une valeur envoyée depuis choix du questionnaire
     $_SESSION['nom_questionnaire'] = $_POST['questionnaire'];
-else :
-    $_SESSION['nom_questionnaire'] = 'Attente de questionnaire';
+    $questionnaire = $_SESSION['nom_questionnaire'];
+    else :
+        $_SESSION['nom_questionnaire'] = 'Attente de questionnaire';
+        $questionnaire = '';
+
 endif;
 echo "- questionnaire" . " : " . ($_SESSION['nom_questionnaire']);
 ?>
@@ -62,12 +65,9 @@ include('../inc/link.php');
                     <div class="col-12 mt-0 p-2 text-center">
                         <button type="submit" class="btn btn-success p-3" name="submit" value="">Démarrer</button>
                         <a class="btn btn-secondary" href="user_read.php">Annuler</a>
-
                     </div>
                 </div>
         </div>
-
-
         </form>
         <div class="container">
             <div class="row text-light">
@@ -87,14 +87,15 @@ include('../inc/link.php');
                         <tbody>
                             <?php include '../inc/database.php'; //on inclut notre fichier de connection
                             $pdo = Database::connect(); //on se connecte à la base 
-                            $sql = 'SELECT * FROM user ORDER BY id_user ASC'; //on formule notre requete
+                            $sql = "SELECT * FROM user WHERE nom_questionnaire  = '" . ($questionnaire) . "'"; //on formule notre requete
+                            $sql .= "ORDER BY id_user ASC";
                             foreach ($pdo->query($sql) as $row) { //on cree les lignes du tableau avec chaque valeur retournée
                                 echo '<tr>';
                                 echo '<td>' . $row['id_user'] . '</td>';
                                 echo '<td>' . $row['date_user'] . '</td>';
                                 echo '<td>' . $row['nom_questionnaire'] . '</td>';
                                 echo '<td>' . $row['tb_choix'] . '</td>';
-                                echo '<td>' . $row['url'] . '</td>'; 
+                                echo '<td>' . $row['url'] . '</td>';
                                 echo '<td>';
                                 echo '<a class="btn btn-primary" href="user_edit.php?id=' . $row['id_user'] . '">Lire</a>'; // un autre td pour le bouton d'edition
                                 echo ' ';
